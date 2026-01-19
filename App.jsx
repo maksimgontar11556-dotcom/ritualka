@@ -1,14 +1,14 @@
 // === ADMIN LOGIN + PROTECTED ADMIN PANEL + DARK PREMIUM THEME ===
 
-imporыt React from "react";
+import React from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://cyuqpiginylojahoytxx.supabase.co";
-const supabaseKey = "sb_publishab33le_CiXdCgdXrbfXi2nZfc-Ywg_MGsB57DQ";
+const supabaseKey = "sb_publishable_CiXdCgdXrbfXi2nZfc-Ywg_MGsB57DQ";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function RitualCrossesSite() {
-  const isAdminRoute = typeof window !== "unde33fined" && window.location.search.includes("admin");
+  const isAdminRoute = typeof window !== "undefined" && window.location.search.includes("admin");
   const ALLOWED_ADMIN_EMAIL = "dgontara@mail.ru"; // <-- ЗАМЕНИ НА СВОЙ EMAIL
   const [session, setSession] = React.useState(null);
   const isAllowedAdmin = session?.user?.email === ALLOWED_ADMIN_EMAIL;
@@ -157,6 +157,11 @@ body{
 
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 260, background: "linear-gradient(180deg, rgba(20,20,20,.95), rgba(5,5,5,.95)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba') center/cover", filter: "grayscale(1) brightness(.7)", maskImage: "linear-gradient(to right, black 60%, transparent)", WebkitMaskImage: "linear-gradient(to right, black 60%, transparent)" }} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
+          <div style={{ position: "absolute", top: 16, left: 24, zIndex: 5, color: "#e6e6e6", fontSize: 12, lineHeight: 1.4, maxWidth: 260 }}>
+            <div style={{ fontWeight: 600 }}>📍 Краснодарский край</div>
+            <div>ст. Ленинградская</div>
+            <div style={{ marginTop: 6, opacity: .85 }}>ИП Гонтарь Максим Сергеевич</div>
+          </div>
           <div style={{ width: 120 }} />
 
           <div style={{ textAlign: "center" }}>
