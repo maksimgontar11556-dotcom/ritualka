@@ -51,7 +51,13 @@ body{
       input{background:#111;border:1px solid #333;border-radius:12px;padding:10px;color:#eee}
       .grid{display:grid;grid-template-columns:repeat(4,minmax(260px,1fr));gap:32px}
       @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
-      @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}@media(max-width:480px){.grid{grid-template-columns:1fr;gap:16px}}
+      @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}@media(max-width:480px){
+  .header-address{
+    position:static!important;
+    margin:0 auto 12px;
+    text-align:center;
+  }
+}
 @media(max-width:480px){
   header div[style*="ст. Ленинградская"]{
     position:static!important;
@@ -164,11 +170,11 @@ body{
 
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 260, background: "linear-gradient(180deg, rgba(20,20,20,.95), rgba(5,5,5,.95)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba') center/cover", filter: "grayscale(1) brightness(.7)", maskImage: "linear-gradient(to right, black 60%, transparent)", WebkitMaskImage: "linear-gradient(to right, black 60%, transparent)" }} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-          <div style={{ position: "absolute", top: 16, left: 48, zIndex: 5, color: "#e6e6e6", fontSize: 12, lineHeight: 1.4, maxWidth: 260 }}>
-            <div style={{ fontWeight: 600 }}>📍 Краснодарский край</div>
-            <div>ст. Ленинградская</div>
-            <div style={{ marginTop: 6, opacity: .85 }}>ИП Гонтарь Максим Сергеевич</div>
-          </div>
+          <div className="header-address" style={{ position: "absolute", top: 16, left: 64, zIndex: 5, color: "#e6e6e6", fontSize: 12, lineHeight: 1.4, maxWidth: 260 }}>
+  <div style={{ fontWeight: 600 }}>📍 Краснодарский край</div>
+  <div>ст. Ленинградская</div>
+  <div style={{ marginTop: 6, opacity: .85 }}>ИП Гонтарь Максим Сергеевич</div>
+</div>
           <div style={{ width: 120 }} />
 
           <div style={{ textAlign: "center" }}>
