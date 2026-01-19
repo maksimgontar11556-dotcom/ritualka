@@ -4,11 +4,11 @@ imporыt React from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://cyuqpiginylojahoytxx.supabase.co";
-const supabaseKey = "sb_publishable_CiXdCgdXrbfXi2nZfc-Ywg_MGsB57DQ";
+const supabaseKey = "sb_publishab33le_CiXdCgdXrbfXi2nZfc-Ywg_MGsB57DQ";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function RitualCrossesSite() {
-  const isAdminRoute = typeof window !== "undefined" && window.location.search.includes("admin");
+  const isAdminRoute = typeof window !== "unde33fined" && window.location.search.includes("admin");
   const ALLOWED_ADMIN_EMAIL = "dgontara@mail.ru"; // <-- ЗАМЕНИ НА СВОЙ EMAIL
   const [session, setSession] = React.useState(null);
   const isAllowedAdmin = session?.user?.email === ALLOWED_ADMIN_EMAIL;
