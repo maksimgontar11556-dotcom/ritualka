@@ -49,12 +49,12 @@ body{
       button{background:#141414;color:#eee;border:1px solid #333;border-radius:14px;padding:12px 18px;cursor:pointer}
       button:hover{background:#000}
       input{background:#111;border:1px solid #333;border-radius:12px;padding:10px;color:#eee}
-      .grid{display:grid;grid-template-columns:repeat(5,minmax(260px,1fr));gap:32px}
+      .grid{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:28px}
       @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
-      @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+      @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}@media(max-width:480px){.grid{grid-template-columns:1fr;gap:14px}}
       @media(max-width:500px){.grid{grid-template-columns:1fr}}
       .card{background:#0e0e0e;border:1px solid #2a2a2a;border-radius:22px;display:flex;flex-direction:column;height:100%;overflow:hidden}
-      .imgWrap{height:340px;overflow:hidden;position:relative;cursor:zoom-in}
+      .imgWrap{height:300px;overflow:hidden;position:relative;cursor:zoom-in}@media(max-width:600px){.imgWrap{height:220px}}
       .imgWrap img{width:100%;height:100%;object-fit:contain;filter:brightness(.8);transition:transform .4s ease, filter .3s}.imgWrap:hover img{transform:scale(1.15);filter:brightness(1)}
       .card:hover img{filter:brightness(1)}
       .cardBody{padding:18px;display:flex;flex-direction:column;flex:1;gap:12px}
@@ -156,7 +156,7 @@ body{
 >
 
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 260, background: "linear-gradient(180deg, rgba(20,20,20,.95), rgba(5,5,5,.95)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba') center/cover", filter: "grayscale(1) brightness(.7)", maskImage: "linear-gradient(to right, black 60%, transparent)", WebkitMaskImage: "linear-gradient(to right, black 60%, transparent)" }} />
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
           <div style={{ width: 120 }} />
 
           <div style={{ textAlign: "center" }}>
@@ -201,8 +201,8 @@ body{
         </div>
       )}
 
-      <main style={{ maxWidth: 1600, margin: "40px auto", padding: "40px 32px", background: "linear-gradient(180deg,#0b0b0b,#050505)", borderRadius: 24, position: "relative", overflow: "hidden", display: "flex", gap: 32 }}>
-        <aside style={{ width: 220 }}>
+      <main style={{ maxWidth: 1600, margin: "24px auto", padding: "24px 16px", background: "linear-gradient(180deg,#0b0b0b,#050505)", borderRadius: 24, position: "relative", overflow: "hidden", display: "flex", gap: 32 }}>
+        <aside style={{ width: 220 }}><style>{`@media(max-width:768px){aside{width:100%!important;position:static!important;margin-bottom:20px}}`}</style>
           <div style={{ border: "1px solid #ddd", borderRadius: 18, padding: 18, position: "sticky", top: 40 }}>
             <strong style={{ display: "block", marginBottom: 12 }}>Каталог</strong>
             <div style={{ cursor: "pointer", fontWeight: 700 }}>Кресты</div>
@@ -238,8 +238,8 @@ body{
       {previewProduct && (
         <div className="overlay" onClick={() => setPreviewProduct(null)}>
           <div className="cartPanel" onClick={e => e.stopPropagation()} style={{maxWidth:1000, padding:32}}>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:24}}>
-              <img src={(previewProduct.images || [previewProduct.image_url])[previewIndex]} alt={previewProduct.name} style={{width:"100%",height:"85vh",borderRadius:28,objectFit:"contain"}} />
+            <div style={{display:"grid",gridTemplateColumns:"1fr",gap:20}}>
+              <img src={(previewProduct.images || [previewProduct.image_url])[previewIndex]} alt={previewProduct.name} style={{width:"100%",maxHeight:"75vh",borderRadius:28,objectFit:"contain"}} />
               <div style={{display:"flex",gap:12,marginTop:12}}>
                 {(previewProduct.images || [previewProduct.image_url]).map((img,idx)=>(
                   <img key={idx} src={img} onClick={()=>setPreviewIndex(idx)} style={{width:80,height:80,borderRadius:12,objectFit:"cover",cursor:"pointer",opacity:idx===previewIndex?1:.5,border:idx===previewIndex?"2px solid #d6b56e":"1px solid #333"}} />
