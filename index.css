@@ -1,0 +1,19 @@
+return (
+  <>
+    <GlobalStyles />
+
+    <header style={{
+      padding: 20,
+      borderBottom: "1px solid #222",
+      background: "#050505",
+      position: "relative",
+      overflow: "hidden"
+    }}>
+      ...
+    </header>
+
+    <main style={{ background: "#ffffff" }}>
+      ...
+    </main>
+  </>
+);
