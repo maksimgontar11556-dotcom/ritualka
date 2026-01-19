@@ -49,9 +49,16 @@ body{
       button{background:#141414;color:#eee;border:1px solid #333;border-radius:14px;padding:12px 18px;cursor:pointer}
       button:hover{background:#000}
       input{background:#111;border:1px solid #333;border-radius:12px;padding:10px;color:#eee}
-      .grid{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:28px}
+      .grid{display:grid;grid-template-columns:repeat(4,minmax(260px,1fr));gap:32px}
       @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
-      @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}@media(max-width:480px){.grid{grid-template-columns:1fr;gap:14px}}
+      @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}@media(max-width:480px){.grid{grid-template-columns:1fr;gap:16px}}
+@media(max-width:480px){
+  header div[style*="ст. Ленинградская"]{
+    position:static!important;
+    margin:0 auto 12px;
+    text-align:center;
+  }
+}
       @media(max-width:500px){.grid{grid-template-columns:1fr}}
       .card{background:#0e0e0e;border:1px solid #2a2a2a;border-radius:22px;display:flex;flex-direction:column;height:100%;overflow:hidden}
       .imgWrap{height:300px;overflow:hidden;position:relative;cursor:zoom-in}@media(max-width:600px){.imgWrap{height:220px}}
@@ -157,7 +164,7 @@ body{
 
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 260, background: "linear-gradient(180deg, rgba(20,20,20,.95), rgba(5,5,5,.95)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba') center/cover", filter: "grayscale(1) brightness(.7)", maskImage: "linear-gradient(to right, black 60%, transparent)", WebkitMaskImage: "linear-gradient(to right, black 60%, transparent)" }} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-          <div style={{ position: "absolute", top: 16, left: 24, zIndex: 5, color: "#e6e6e6", fontSize: 12, lineHeight: 1.4, maxWidth: 260 }}>
+          <div style={{ position: "absolute", top: 16, left: 48, zIndex: 5, color: "#e6e6e6", fontSize: 12, lineHeight: 1.4, maxWidth: 260 }}>
             <div style={{ fontWeight: 600 }}>📍 Краснодарский край</div>
             <div>ст. Ленинградская</div>
             <div style={{ marginTop: 6, opacity: .85 }}>ИП Гонтарь Максим Сергеевич</div>
