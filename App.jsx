@@ -1,4 +1,4 @@
-// === ADMIN LOGIN + PROTECTED ADMIN PANEL + DARK PREMIUM THEME ===
+// === ADMIN LOGIN + PROTECTED ADMIN PANEL + DARK PREMIUM THEME ===ы
 
 import React from "react";
 import { createClient } from "@supabase/supabase-js";
