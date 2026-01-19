@@ -52,7 +52,7 @@ body{
       .grid{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:28px}
 @media(max-width:1200px){.grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);gap:20px}}
-@media(max-width:520px){.grid{grid-template-columns:1fr;gap:16px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr;gap:14px;padding:0 4px}}
       @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
       @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}@media(max-width:480px){
   .header-address{
@@ -70,12 +70,67 @@ body{
 }
       @media(max-width:500px){.grid{grid-template-columns:1fr}}
       .card{background:#0e0e0e;border:1px solid #2a2a2a;border-radius:22px;display:flex;flex-direction:column;height:100%;overflow:hidden}
-      .imgWrap{height:300px;overflow:hidden;position:relative;cursor:zoom-in}
+      .imgWrap{height:320px;overflow:hidden;position:relative;cursor:zoom-in}@media(max-width:520px){.imgWrap{height:240px;border-radius:18px}}
 @media(max-width:520px){.imgWrap{height:200px}}@media(max-width:600px){.imgWrap{height:220px}}
       .imgWrap img{width:100%;height:100%;object-fit:contain;filter:brightness(.8);transition:transform .4s ease, filter .3s}.imgWrap:hover img{transform:scale(1.15);filter:brightness(1)}
       .card:hover img{filter:brightness(1)}
       .cardBody{padding:18px;display:flex;flex-direction:column;flex:1;gap:12px}
       .overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:1000;animation:fadeIn .25s ease}
+@media(max-width:520px){
+  .mobile-sticky-add{
+    position:sticky;
+    bottom:0;
+    margin-top:16px;
+    padding:14px;
+    background:linear-gradient(180deg,rgba(5,5,5,.6),#050505 40%);
+    backdrop-filter:blur(6px);
+    border-top:1px solid #222;
+    z-index:5;
+  }
+}
+/* MOBILE BOTTOM MENU */
+.mobile-bottom-menu{
+  display:none;
+}
+@media(max-width:600px){
+  .mobile-bottom-menu{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:64px;
+    background:#0b0b0b;
+    border-top:1px solid #222;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:999;
+  }
+  .mobile-bottom-menu div,
+  .mobile-bottom-menu a{
+    flex:1;
+    text-align:center;
+    color:#eee;
+    font-size:12px;
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    cursor:pointer;
+  }
+  .cart-badge{
+    position:absolute;
+    top:2px;
+    right:30%;
+    background:#d6b56e;
+    color:#000;
+    border-radius:999px;
+    padding:2px 6px;
+    font-size:11px;
+    font-weight:700;
+  }
+}
+
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
       .cartPanel{background:#0b0b0b;max-width:520px;margin:40px auto;padding:24px;border-radius:26px;display:flex;flex-direction:column;gap:18px;animation:slideUp .35s cubic-bezier(.2,.8,.2,1);max-height:calc(100vh - 80px);overflow-y:auto}
       .cartHeader{display:flex;align-items:center;justify-content:space-between}
@@ -159,24 +214,24 @@ body{
 
       <header
   style={{
-    padding: "32px 16px",
+    padding: "28px 14px",
     borderBottom: "1px solid #1c1c1c",
     position: "relative",
     overflow: "hidden",
-    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.95)), url("https://images.unsplash.com/photo-1482192596544-9eb780fc7f66")`,
+    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.95)), url("https://images.unsplash.com/photo-1482192596544-9eb780fc7f66")`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
 >
-  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
-    <div className="header-address" style={{ textAlign: "center", fontSize: 12, lineHeight: 1.4 }}>
+  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+    <div className="header-address" style={{ textAlign: "center", fontSize: 11, lineHeight: 1.5 }}>
       <div style={{ fontWeight: 600 }}>📍 Краснодарский край</div>
       <div>ст. Ленинградская</div>
-      <div style={{ marginTop: 6, opacity: .85 }}>ИП Гонтарь Максим Сергеевич</div>
+      <div style={{ marginTop: 4, opacity: .8 }}>ИП Гонтарь Максим Сергеевич</div>
     </div>
-    <strong style={{ fontSize: 26, color: "#fff", textAlign: "center" }}>Ритуальный магазин «Вечность»</strong>
-    <div style={{ fontSize: 13, opacity: .9, color: "#fff" }}>📞 +7‑918‑977‑45‑79 — Максим</div>
-    <div onClick={() => setCartOpen(true)} style={{ cursor: "pointer", position: "relative", fontSize: 22 }}>
+    <strong style={{ fontSize: 24, color: "#fff", textAlign: "center", lineHeight: 1.2 }}>Ритуальный магазин «Вечность»</strong>
+    <div style={{ fontSize: 13, opacity: .9, color: "#fff" }}>📞 +7‑918‑977‑45‑79</div>
+    <div onClick={() => setCartOpen(true)} style={{ cursor: "pointer", position: "relative", fontSize: 22, marginTop: 6 }}>
       🛒
       {totalQty > 0 && (
         <span style={{ position: "absolute", top: -6, right: -10, background: "#d6b56e", color: "#000", borderRadius: 999, padding: "2px 7px", fontSize: 12, fontWeight: 700 }}>
@@ -186,6 +241,18 @@ body{
     </div>
   </div>
 </header>
+
+{/* MOBILE BOTTOM MENU */}
+<div className="mobile-bottom-menu">
+  <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>📦<span>Каталог</span></div>
+  <div onClick={() => setCartOpen(true)} style={{ position: "relative" }}>
+    🛒<span>Корзина</span>
+    {totalQty > 0 && (
+      <b className="cart-badge">{totalQty}</b>
+    )}
+  </div>
+  <a href="tel:+79189774579">📞<span>Контакты</span></a>
+</div>
 
       {(!session || !isAllowedAdmin) && isAdminRoute && (
         <div style={{ maxWidth: 360, margin: "60px auto" }}>
@@ -220,7 +287,7 @@ body{
           )}
         <div className="grid">
           {filtered.map(p => (
-            <div key={p.id} className="card" onClick={() => setPreviewProduct(p)} style={{cursor:"pointer"}}>
+            <div key={p.id} className="card" style={{cursor:"default"}}>
               <div className="imgWrap"><img src={p.image_url} alt={p.name} /></div>
               <div className="cardBody">
                 <h3 style={{ color: "#fff", fontWeight: 700 }}>{p.name}</h3>
@@ -244,8 +311,28 @@ body{
       {previewProduct && (
         <div className="overlay" onClick={() => setPreviewProduct(null)}>
           <div className="cartPanel" onClick={e => e.stopPropagation()} style={{maxWidth:1000, padding:32}}>
-            <div style={{display:"grid",gridTemplateColumns:"1fr",gap:20}}>
-              <img src={(previewProduct.images || [previewProduct.image_url])[previewIndex]} alt={previewProduct.name} style={{width:"100%",maxHeight:"75vh",borderRadius:28,objectFit:"contain"}} />
+            <div style={{display:"grid",gridTemplateColumns:"1.4fr 1fr",gap:32,alignItems:"start"}}><style>{`@media(max-width:768px){.product-preview-grid{grid-template-columns:1fr!important}}`}</style>
+              <div style={{overflow:"visible",touchAction:"pan-x pan-y pinch-zoom"}}>
+                <img
+                  src={(previewProduct.images || [previewProduct.image_url])[previewIndex]}
+                  alt={previewProduct.name}
+                  style={{
+                    width: "100%",
+                    maxHeight: "85vh",
+                    borderRadius: 28,
+                    objectFit: "contain",
+                    cursor: "zoom-in",
+                    transformOrigin: "center center",
+                  }}
+                  onClick={(e) => {
+                    const img = e.currentTarget;
+                    const zoomed = img.dataset.zoomed === "true";
+                    img.style.transform = zoomed ? "scale(1)" : "scale(2)";
+                    img.style.transition = "transform .3s ease";
+                    img.dataset.zoomed = zoomed ? "false" : "true";
+                  }}
+                />
+              </div>
               <div style={{display:"flex",gap:12,marginTop:12}}>
                 {(previewProduct.images || [previewProduct.image_url]).map((img,idx)=>(
                   <img key={idx} src={img} onClick={()=>setPreviewIndex(idx)} style={{width:80,height:80,borderRadius:12,objectFit:"cover",cursor:"pointer",opacity:idx===previewIndex?1:.5,border:idx===previewIndex?"2px solid #d6b56e":"1px solid #333"}} />
@@ -255,7 +342,11 @@ body{
                 <h2 style={{color:"#fff"}}>{previewProduct.name}</h2>
                 <p style={{color:"#ddd",fontSize:16,lineHeight:1.6}}>{previewProduct.description}</p>
                 <div style={{fontSize:28,fontWeight:800,color:"#fff",fontFamily:"Playfair Display, serif"}}>{previewProduct.price} ₽</div>
-                <button onClick={() => addToCart(previewProduct)} style={{marginTop:"auto"}}>Добавить в корзину</button>
+                <div className="mobile-sticky-add">
+  <button onClick={() => addToCart(previewProduct)} style={{ width: "100%", fontSize: 16, fontWeight: 700 }}>
+    🛒 Добавить в корзину — {previewProduct.price} ₽
+  </button>
+</div>
               </div>
             </div>
           </div>
