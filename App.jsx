@@ -1,4 +1,4 @@
-// === ADMIN LOGIN + PROTECTED ADMIN PANEL + DARK PREMIUM THEME ===ы
+// === ADMIN LOGIN + PROTECTED ADMIN PANEL + DARK PREMIUM THEME ===
 
 import React from "react";
 import { createClient } from "@supabase/supabase-js";
@@ -49,7 +49,10 @@ body{
       button{background:#141414;color:#eee;border:1px solid #333;border-radius:14px;padding:12px 18px;cursor:pointer}
       button:hover{background:#000}
       input{background:#111;border:1px solid #333;border-radius:12px;padding:10px;color:#eee}
-      .grid{display:grid;grid-template-columns:repeat(4,minmax(260px,1fr));gap:32px}
+      .grid{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:28px}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);gap:20px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr;gap:16px}}
       @media(max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
       @media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}@media(max-width:480px){
   .header-address{
@@ -67,7 +70,8 @@ body{
 }
       @media(max-width:500px){.grid{grid-template-columns:1fr}}
       .card{background:#0e0e0e;border:1px solid #2a2a2a;border-radius:22px;display:flex;flex-direction:column;height:100%;overflow:hidden}
-      .imgWrap{height:300px;overflow:hidden;position:relative;cursor:zoom-in}@media(max-width:600px){.imgWrap{height:220px}}
+      .imgWrap{height:300px;overflow:hidden;position:relative;cursor:zoom-in}
+@media(max-width:520px){.imgWrap{height:200px}}@media(max-width:600px){.imgWrap{height:220px}}
       .imgWrap img{width:100%;height:100%;object-fit:contain;filter:brightness(.8);transition:transform .4s ease, filter .3s}.imgWrap:hover img{transform:scale(1.15);filter:brightness(1)}
       .card:hover img{filter:brightness(1)}
       .cardBody{padding:18px;display:flex;flex-direction:column;flex:1;gap:12px}
@@ -155,49 +159,33 @@ body{
 
       <header
   style={{
-    padding: "48px 32px",
+    padding: "32px 16px",
     borderBottom: "1px solid #1c1c1c",
     position: "relative",
     overflow: "hidden",
-    backgroundImage: `
-      linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.95)),
-      url("https://images.unsplash.com/photo-1482192596544-9eb780fc7f66")
-    `,
+    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.95)), url("https://images.unsplash.com/photo-1482192596544-9eb780fc7f66")`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
 >
-
-        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 260, background: "linear-gradient(180deg, rgba(20,20,20,.95), rgba(5,5,5,.95)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba') center/cover", filter: "grayscale(1) brightness(.7)", maskImage: "linear-gradient(to right, black 60%, transparent)", WebkitMaskImage: "linear-gradient(to right, black 60%, transparent)" }} />
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-          <div className="header-address" style={{ position: "absolute", top: 16, left: 64, zIndex: 5, color: "#e6e6e6", fontSize: 12, lineHeight: 1.4, maxWidth: 260 }}>
-  <div style={{ fontWeight: 600 }}>📍 Краснодарский край</div>
-  <div>ст. Ленинградская</div>
-  <div style={{ marginTop: 6, opacity: .85 }}>ИП Гонтарь Максим Сергеевич</div>
-</div>
-          <div style={{ width: 120 }} />
-
-          <div style={{ textAlign: "center" }}>
-            <strong style={{ fontSize: 28, display: "block", color: "#fff" }}>Ритуальный магазин «Вечность»</strong>
-            <div style={{ fontSize: 13, opacity: .8, color: "#fff" }}>Производство ритуальных принадлежностей</div>
-            <div style={{ fontSize: 13, opacity: 1, marginTop: 4, color: "#fff" }}>📞 +7‑918‑977‑45‑79 — Максим</div>
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <div onClick={() => setCartOpen(true)} style={{ cursor: "pointer", position: "relative", fontSize: 22 }}>
-              🛒
-              {totalQty > 0 && (
-                <span style={{ position: "absolute", top: -6, right: -10, background: "#d6b56e", color: "#000", borderRadius: 999, padding: "2px 7px", fontSize: 12, fontWeight: 700 }}>
-                  {totalQty}
-                </span>
-              )}
-            </div>
-            {isAllowedAdmin && <button onClick={logout}>Выйти</button>}
-          </div>
-        </div>
-
-        
-      </header>
+  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+    <div className="header-address" style={{ textAlign: "center", fontSize: 12, lineHeight: 1.4 }}>
+      <div style={{ fontWeight: 600 }}>📍 Краснодарский край</div>
+      <div>ст. Ленинградская</div>
+      <div style={{ marginTop: 6, opacity: .85 }}>ИП Гонтарь Максим Сергеевич</div>
+    </div>
+    <strong style={{ fontSize: 26, color: "#fff", textAlign: "center" }}>Ритуальный магазин «Вечность»</strong>
+    <div style={{ fontSize: 13, opacity: .9, color: "#fff" }}>📞 +7‑918‑977‑45‑79 — Максим</div>
+    <div onClick={() => setCartOpen(true)} style={{ cursor: "pointer", position: "relative", fontSize: 22 }}>
+      🛒
+      {totalQty > 0 && (
+        <span style={{ position: "absolute", top: -6, right: -10, background: "#d6b56e", color: "#000", borderRadius: 999, padding: "2px 7px", fontSize: 12, fontWeight: 700 }}>
+          {totalQty}
+        </span>
+      )}
+    </div>
+  </div>
+</header>
 
       {(!session || !isAllowedAdmin) && isAdminRoute && (
         <div style={{ maxWidth: 360, margin: "60px auto" }}>
