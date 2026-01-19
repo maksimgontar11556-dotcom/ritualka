@@ -1,6 +1,6 @@
 // === ADMIN LOGIN + PROTECTED ADMIN PANEL + DARK PREMIUM THEME ===
 
-import React from "react";
+imporыt React from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://cyuqpiginylojahoytxx.supabase.co";
